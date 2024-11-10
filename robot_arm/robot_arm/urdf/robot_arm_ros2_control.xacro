@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="fanuc_lrmate200i">
+
+    <!-- Define PI constant for joint limits -->
+    <xacro:property name="PI" value="3.14159265359"/>
+
+    <ros2_control name="RobotSystem" type="system">
+        <xacro:if value="$(arg is_ignition)">
+            <hardware>
+                <plugin>ign_ros2_control/IgnitionSystem</plugin>
+            </hardware>
+        </xacro:if>
+        <xacro:unless value="$(arg is_ignition)">
+            <hardware>
+                <plugin>gz_ros2_control/GazeboSimSystem</plugin>
+            </hardware>
+        </xacro:unless>
+
+        <!-- Define each joint with corrected min and max limits using ${PI} syntax -->
+        <joint name="joint_1">
+            <command_interface name="position">
+                <param name="min">-${PI}</param>
+                <param name="max">${PI}</param>
+            </command_interface>
+            <state_interface name="position"/>
+        </joint>
+
+        <joint name="joint_2">
+            <command_interface name="position">
+                <param name="min">-${PI}</param>
+                <param name="max">${PI}</param>
+            </command_interface>
+            <state_interface name="position"/>
+        </joint>
+
+        <joint name="joint_3">
+            <command_interface name="position">
+                <param name="min">-${PI}</param>
+                <param name="max">${PI}</param>
+            </command_interface>
+            <state_interface name="position"/>
+        </joint>
+
+        <joint name="joint_4">
+            <command_interface name="position">
+                <param name="min">-${PI}</param>
+                <param name="max">${PI}</param>
+            </command_interface>
+            <state_interface name="position"/>
+        </joint>
+
+        <joint name="joint_5">
+            <command_interface name="position">
+                <param name="min">-${PI}</param>
+                <param name="max">${PI}</param>
+            </command_interface>
+            <state_interface name="position"/>
+        </joint>
+
+        <joint name="joint_6">
+            <command_interface name="position">
+                <param name="min">-${PI}</param>
+                <param name="max">${PI}</param>
+            </command_interface>
+            <state_interface name="position"/>
+        </joint>
+
+    </ros2_control>
+
+</robot>
